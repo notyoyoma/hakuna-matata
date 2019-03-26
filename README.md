@@ -12,10 +12,10 @@ An API client that means no worries.
     Output: API client
 ```
 
-2. Automated test generation
+2. Automated test stub generation
 ```
-    Input: Swagger file
-    Output: Generate test files with API mocking
+    Input: Swagger file, tags
+    Output: Generate test stubs with API mocking
 ```
 
 3. API client usage tests
