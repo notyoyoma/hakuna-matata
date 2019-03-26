@@ -4,36 +4,28 @@ An API client that means no worries.
 
 ### Future Features
 
-1. Production API client
+1. API client
 ```
     Input: Swagger file
     Output: API client
 ```
 
-2. Development API client - live mode
+    a. Development mode - API client stored in non-committed JS files for code-completion
+    b. Mock mode - API client only returns values from Swagger file
+
+2. Automated test generation
 ```
     Input: Swagger file
-    Output: API client in non-committed JS files for code-completion
+    Output: Generate test files with API mocking
 ```
 
-3. Development API client - mock mode
-```
-    Input: Swagger file
-    Output: API client in non-committed JS files with mock responses
-```
-
-4. Automated test generation
-```
-    Input: Swagger file
-    Output: Pre-built test files with API mocking
-```
-
-5. API client usage tests
+3. API client usage tests
 ```
     Input: Swagger file, front-end code
-    Output: Test front-end usage adheres to swagger contract
+    Output: Test API client usage adheres to swagger contract
 ```
 
 ### Current Features
 
 1. This Readme
+2. Thoughts and Prayers
