@@ -5,8 +5,8 @@ An API client that means no worries.
 ### Future Features
 
 1. API client
-    a. Development mode - API client stored in non-committed JS files for code-completion
-    b. Mock mode - API client only returns values from Swagger file
+    1. Development mode - API client stored in non-committed JS files for code-completion
+    2. Mock mode - API client only returns values from Swagger file
 ```
     Input: Swagger file
     Output: API client
