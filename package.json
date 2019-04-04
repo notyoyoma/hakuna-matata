@@ -1,0 +1,21 @@
+{
+  "name": "hakuna-matata",
+  "version": "0.0.1",
+  "description": "API layer for swagger with testing and usage help.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.worthwhile.com:ui-guild/hakuna-matata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "swagger-js": "^1.0.0"
+  }
+}
