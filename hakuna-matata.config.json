@@ -1,0 +1,14 @@
+[
+  {
+    "nodeEnv": "production",
+    "gitBranch": "production",
+    "url": "https://petstore.swagger.io/v2/swagger.json"
+  },
+  {
+    "nodeEnv": "develop",
+    "url": "https://petstore.swagger.io/v2/swagger.json"
+  },
+  {
+    "url": "https://petstore.swagger.io/v2/swagger.json"
+  }
+]

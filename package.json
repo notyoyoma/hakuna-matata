@@ -16,6 +16,8 @@
     "jest": "^24.7.1"
   },
   "dependencies": {
-    "swagger-js": "^1.0.0"
+    "fs": "0.0.1-security",
+    "git-branch": "^2.0.1",
+    "swagger-client": "^3.8.25"
   }
 }
