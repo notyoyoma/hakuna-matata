@@ -13,4 +13,4 @@ const Swagger = require('swagger-client');
  */
 const spec = HK_OPEN_API_SPEC || false;
 
-global.hk = Swagger({spec}).client;
+global.$hm = Swagger({spec}).client;
