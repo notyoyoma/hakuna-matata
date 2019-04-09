@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const envGitBranch = require('git-branch');
-const syncRequest = require('sync-request');
 
 const CONFIG_FILE = "hakuna-matata.config.json";
 
@@ -42,6 +41,4 @@ for (let conf of configFile) {
   }
 }
 
-const spec = syncRequest('GET', config.url).getBody().toString('utf8');
-exports.spec = spec;
 exports.default = config;

@@ -2,7 +2,7 @@
   "name": "hakuna-matata",
   "version": "0.0.1",
   "description": "API layer for swagger with testing and usage help.",
-  "main": "./dist/main.js",
+  "main": "./src/main.js",
   "scripts": {
     "test": "jest"
   },
