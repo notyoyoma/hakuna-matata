@@ -1,5 +1,5 @@
 {
-  "name": "@worthwhile/hakuna-matata",
+  "name": "@notyoyoma/hakuna-matata",
   "version": "0.0.1",
   "description": "API layer for swagger with testing and usage help.",
   "main": "./src/main.js",
