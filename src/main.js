@@ -1,5 +1,4 @@
 const Swagger = require('swagger-client');
-const config = require('./config.js').default;
 
 /* Inject during compile time with webpack 
  * {
