@@ -5,6 +5,11 @@
     "url": "https://petstore.swagger.io/v2/swagger.json"
   },
   {
+    "nodeEnv": "production",
+    "gitBranch": "staging",
+    "url": "https://petstore.swagger.io/v2/swagger.json"
+  },
+  {
     "nodeEnv": "develop",
     "url": "https://petstore.swagger.io/v2/swagger.json"
   },

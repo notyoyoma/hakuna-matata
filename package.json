@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/notyoyoma/hakuna-matata#readme",
   "license": "ISC",
-  "main": "./plugin.js",
+  "main": "./client.js",
   "name": "@notyoyoma/hakuna-matata",
   "repository": {
     "type": "git",

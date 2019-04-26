@@ -4,28 +4,38 @@ An API client that reads in OpenAPI specs, gives auto-complete hints in editors,
 
 Hakuna Matata. It means no worries.
 
-## Installation
+## Installation and configuration
 
 1. Install
 ```
-npm install --save hakuna-matata
+npm install --save @notyoyoma/hakuna-matata
 ```
 
 2. Add plugin to webpack.conf.js
 webpack-config.js
 
 ```
-const HakunaMatata = require('hakuna-matata/plugin');
+const HakunaMatata = require('@notyoyoma/hakuna-matata/plugin').default;
 {
   ...
   plugins: [
     ...
-    new webpack.DefinePlugin({
-      "$hm": new HakunaMatata()
+    new HakunaMatata({
+      configFile: 'hakuna-matata.config.json',
+      alias: '$hm',
+      expression: '@notyoyoma/hakuna-matata',
     }),
   ]
 }
 ```
+All of the parameters for `HakunaMatata()` are optional.
+
+
+| param | useage |
+| --- | --- |
+| configFile | Name of the config file that stores the swagger.json locations |
+| alias | Name of the global variable |
+| expression | Location to require hakuna-matata from |
 
 3. Create `./hakuna-matata.config.json` in the root of your project.
 ```
@@ -45,7 +55,7 @@ const HakunaMatata = require('hakuna-matata/plugin');
 ]
 ```
 
-Hakuna Matata will use the first object that matches. If you you don't configure `hakuna-matata.config.json` correctly, it will fall back to [Pet Store](https://petstore.swagger.io/v2/swagger.json). Available matching options are:
+Hakuna Matata will use the first object that matches all provided parameters. A default can be set by not providing any parameters. (see above) If you you don't create a `hakuna-matata.config.json` correctly, it will fall back to [Pet Store](https://petstore.swagger.io/v2/swagger.json) (while WIP). Available matching parameters are:
 
 | key | examples | |
 | --- | --- | --- |
@@ -53,20 +63,32 @@ Hakuna Matata will use the first object that matches. If you you don't configure
 | nodeEnv | `production`, `develop` | Config will only be selected if matches `process.env.NODE_ENV`. This is useful when using a separate API for development. |
 
 
+## Usage
+
+Hakuna Matata uses webpack plugin framework (not currently working) to create a global variable containing the API Client.
+
 ### Future Features
 
 1. API client
-    1. Development mode - API client stored in non-committed JS files for code-completion
-    2. Mock mode - API client only returns values from OpenAPI spec
+  1. Mock mode - API client only returns example values from OpenAPI spec (for unit-testing)
+  2. Unit-testing mode - tests all calls against OpenAPI spec, and pass/fails based on adherence
 
-2. Automated test stub generation
+2. Output global.d.ts with full API client usage for vscode autocomplete.
+  1. Output just method names (for autocomplete)
+  2. Output method descriptions
+  3. Output method parameters
+  4. Trigger ESLint for improper use
+
+3. Test stub generation
 ```
-    Input: OpenAPI spec, tags
-    Output: Generate test stubs with API mocking
+  Input: OpenAPI spec, tags
+  Output: Generate test stubs with API mocking
 ```
 
-3. API client usage tests
+4. Live API health-check (for deployments)
+
+5. API client usage tests
 ```
-    Input: Usage of hakuna-matata API client in tests
-    Output: Assert that usage matched OpenAPI spec
+  Input: Usage of hakuna-matata API client in tests
+  Output: Assert that usage matched OpenAPI spec
 ```

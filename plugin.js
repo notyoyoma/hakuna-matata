@@ -4,27 +4,15 @@ const NullFactory = require('webpack/lib/NullFactory');
 const ConstDependency = require('webpack/lib/dependencies/ConstDependency');
 const ParserHelpers = require('webpack/lib/ParserHelpers');
 
-const Swagger = require('swagger-client');
-const resolveSpec = require('./resolveSpec').resolveSpec;
-
-let client;
-
 class HakunaMatata {
   constructor({
     configFile = 'hakuna-matata.config.json',
     alias = '$hm',
-    expression = 'hakuna-matata',
+    expression = '@notyoyoma/hakuna-matata',
   } = {}) {
     this.alias = alias;
     this.expression = expression;
-    this.init({configFile});
-  }
-
-  init({configFile}) {
-    const spec = resolveSpec({configFile});
-    this.spec = spec;
-    this.openApiClient = Swagger({spec});
-    this.client = this.openApiClient;
+    this.client = require(this.expression).initClient({configFile});
   }
 
   bindGlobalForDevelopMode(mode) {
@@ -59,7 +47,5 @@ class HakunaMatata {
     );
   }
 }
-
-exports.client = client;
 
 exports.default = HakunaMatata;
