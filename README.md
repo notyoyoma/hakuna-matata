@@ -11,16 +11,17 @@ Hakuna Matata. It means no worries.
 npm install --save hakuna-matata
 ```
 
-2. Add plugin to webpack
+2. Add plugin to webpack.conf.js
 webpack-config.js
 
 ```
+const HakunaMatata = require('hakuna-matata/plugin');
 {
   ...
   plugins: [
     ...
     new webpack.DefinePlugin({
-      HK_OPEN_API_SPEC: require('hakuna-matata/src/spec.js').spec
+      "$hm": new HakunaMatata()
     }),
   ]
 }

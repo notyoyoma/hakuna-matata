@@ -1,24 +1,55 @@
 {
-  "name": "@notyoyoma/hakuna-matata",
-  "version": "0.0.2",
-  "description": "API layer for swagger with testing and usage help.",
-  "main": "./src/main.js",
-  "scripts": {
-    "test": "jest"
+  "_from": "@notyoyoma/hakuna-matata@^0.0.2",
+  "_id": "@notyoyoma/hakuna-matata@0.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-jPYw+SXJHnDW18aPCLkdgYrHfeAYP9GBUVYQUzVYs/d6PaCR+zgBa/FncjN7W7HuWv/hBN5KJai/id+Mfhq5hQ==",
+  "_location": "/@notyoyoma/hakuna-matata",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@notyoyoma/hakuna-matata@^0.0.2",
+    "name": "@notyoyoma/hakuna-matata",
+    "escapedName": "@notyoyoma%2fhakuna-matata",
+    "scope": "@notyoyoma",
+    "rawSpec": "^0.0.2",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/notyoyoma/hakuna-matata"
-  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@notyoyoma/hakuna-matata/-/hakuna-matata-0.0.2.tgz",
+  "_shasum": "a638822e0ab2afcb859eb7d92db788b89e08e1e2",
+  "_spec": "@notyoyoma/hakuna-matata@^0.0.2",
+  "_where": "/mnt/c/Users/Marty/Documents/projects/workspace/ui-guild/boilerplate",
   "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/notyoyoma/hakuna-matata/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "git-branch": "^2.0.1",
+    "swagger-client": "^3.8.25",
+    "webpack": "^4.29.5"
+  },
+  "deprecated": false,
+  "description": "API layer for swagger with testing and usage help.",
   "devDependencies": {
     "jest": "^24.7.1",
     "sync-request": "^6.1.0"
   },
-  "dependencies": {
-    "fs": "0.0.1-security",
-    "git-branch": "^2.0.1",
-    "swagger-client": "^3.8.25"
-  }
+  "homepage": "https://github.com/notyoyoma/hakuna-matata#readme",
+  "license": "ISC",
+  "main": "./plugin.js",
+  "name": "@notyoyoma/hakuna-matata",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notyoyoma/hakuna-matata.git"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "version": "0.0.2"
 }
