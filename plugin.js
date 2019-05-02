@@ -1,51 +1,33 @@
 "use strict";
 
-const NullFactory = require('webpack/lib/NullFactory');
-const ConstDependency = require('webpack/lib/dependencies/ConstDependency');
-const ParserHelpers = require('webpack/lib/ParserHelpers');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
-class HakunaMatata {
+
+const resolveSpec = require('./resolveSpec');
+
+const constantPrefix = 'HAKUNA_MATATA_API';
+
+class HakunaMatataWebpackPlugin {
   constructor({
     configFile = 'hakuna-matata.config.json',
     alias = '$hm',
     expression = '@notyoyoma/hakuna-matata',
   } = {}) {
-    this.alias = alias;
-    this.expression = expression;
-    this.client = require(this.expression).initClient({configFile});
-  }
 
-  bindGlobalForDevelopMode(mode) {
-    if (mode !== "production") {
-      global[this.alias] = this.client;
-    }
+    const spec = resolveSpec(configFile);
+
+    this.defineConstant = new DefinePlugin({
+      [`${constantPrefix}_ALIAS`]: JSON.stringify(alias),
+      [`${constantPrefix}_SPEC`]: JSON.stringify(spec),
+    });
+    this.provideClient = new ProvidePlugin({[alias]: expression});
   }
 
   apply(compiler) {
-    this.bindGlobalForDevelopMode(compiler.options.mode);
-    compiler.hooks.compilation.tap(
-      "HakunaMatata",
-      (compilation, { normalModuleFactory }) => {
-        compilation.dependencyFactories.set(ConstDependency, new NullFactory());
-        compilation.dependencyTemplates.set(
-					ConstDependency,
-					new ConstDependency.Template()
-				);
-        const handler = (parser, parserOptions) => {
-          parser.hooks.expression.for(this.alias).tap("HakunaMatata", expr => {
-            const expression = `require(${JSON.stringify(this.expression)}).client`;
-            return !ParserHelpers.addParsedVariableToModule(parser, this.alias, expression);
-          });
-        };
-        normalModuleFactory.hooks.parser
-					.for("javascript/auto")
-					.tap("ProvidePlugin", handler);
-				normalModuleFactory.hooks.parser
-					.for("javascript/dynamic")
-					.tap("ProvidePlugin", handler);
-      }
-    );
+    this.defineConstant.apply(compiler);
+    this.provideClient.apply(compiler);
   }
 }
 
-exports.default = HakunaMatata;
+module.exports = HakunaMatataWebpackPlugin;

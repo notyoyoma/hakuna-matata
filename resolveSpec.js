@@ -6,7 +6,7 @@ const gitBranch = (async () => await envGitBranch())();
 const nodeEnv = process.env.NODE_ENV;
 const rootDir = process.env.NODE_PATH || process.cwd();
 
-exports.resolveSpec = function({url, configFile}) {
+function resolveSpec(configFile) {
 
   // Build a list of possible configs from 
   let configs;
@@ -44,3 +44,5 @@ exports.resolveSpec = function({url, configFile}) {
 
   return spec;
 }
+
+module.exports = resolveSpec;

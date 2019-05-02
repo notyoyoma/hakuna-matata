@@ -1,13 +1,11 @@
-const resolveSpec = require('./resolveSpec').resolveSpec;
 const Swagger = require('swagger-client');
 
-let client;
+const spec = JSON.parse(HAKUNA_MATATA_API_SPEC);
+const openApiLib = Swagger({spec});
+const client = openApiLib.client;
 
-exports.initClient = function({configFile}) {
-  const spec = resolveSpec({configFile});
-  const openApiLib = Swagger({spec});
-  client = openApiLib.client;
-  return client;
+if (process.env.NODE_ENV !== 'production') {
+  global[HAKUNA_MATATA_API_ALIAS] = client;
 }
 
-exports.client = client;
+module.exports = client;
