@@ -32,13 +32,13 @@
     "fs": "0.0.1-security",
     "git-branch": "^2.0.1",
     "swagger-client": "^3.8.25",
+    "sync-request": "^6.1.0",
     "webpack": "^4.29.5"
   },
   "deprecated": false,
   "description": "API layer for swagger with testing and usage help.",
   "devDependencies": {
-    "jest": "^24.7.1",
-    "sync-request": "^6.1.0"
+    "jest": "^24.7.1"
   },
   "homepage": "https://github.com/notyoyoma/hakuna-matata#readme",
   "license": "ISC",
