@@ -70,14 +70,14 @@ Hakuna Matata uses webpack plugin framework (not currently working) to create a 
 ### Future Features
 
 1. API client
-  1. Mock mode - API client only returns example values from OpenAPI spec (for unit-testing)
-  2. Unit-testing mode - tests all calls against OpenAPI spec, and pass/fails based on adherence
+    1. Mock mode - API client only returns example values from OpenAPI spec (for unit-testing)
+    2. Unit-testing mode - tests all calls against OpenAPI spec, and pass/fails based on adherence
 
 2. Output global.d.ts with full API client usage for vscode autocomplete.
-  1. Output just method names (for autocomplete)
-  2. Output method descriptions
-  3. Output method parameters
-  4. Trigger ESLint for improper use
+    1. Output just method names (for autocomplete)
+    2. Output method descriptions
+    3. Output method parameters
+    4. Trigger ESLint for improper use
 
 3. Test stub generation
 ```

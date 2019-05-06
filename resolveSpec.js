@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const envGitBranch = require('git-branch');
+const parse = require('url-parse');
 
 const gitBranch = (async () => await envGitBranch())();
 const nodeEnv = process.env.NODE_ENV;
@@ -15,7 +16,7 @@ function resolveSpec(configFile) {
     console.log(configFilePath);
     configs = JSON.parse(fs.readFileSync(configFilePath));
   } catch (error) {
-    configs = [{url: 'https://petstore.swagger.io/v2/swagger.json'}];
+    configs = [{url: 'https://petstore3.swagger.io/api/v3/openapi.json'}];
     console.log('./hakuna-matata.config.json not found. Continuing with petstore json');
   }
 
@@ -32,17 +33,20 @@ function resolveSpec(configFile) {
     }
   }
 
+  const url = config.url;
+
   // Get the spec from the configured URL / file
   let spec;
-  if (/^https?:\/\//.test(config.url)) {
+  if (/^https?:\/\//.test(url)) {
     const syncRequest = require('sync-request');
     console.log("Performing syncronous call. If you see this in the browser, check your hakuna-matata config");
-    spec = syncRequest('GET', config.url).getBody().toString('utf8');
+    spec = syncRequest('GET', url).getBody().toString('utf8');
+    spec = JSON.parse(spec);
   } else {
-    spec = require(config.url);
+    spec = require(url);
   }
 
-  return spec;
+  return {spec, url};
 }
 
 module.exports = resolveSpec;
